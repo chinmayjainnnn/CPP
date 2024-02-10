@@ -17,7 +17,7 @@ public:
             hr=h;
             cout<< mid << " " << k << " "<<start<< " "<<end << endl;
             for(auto i :piles){
-                hr=hr-ceil((double)i/(double)mid);
+                hr=hr-ceil(i/(double)mid);
                 if(hr<0)break;
             }   
             if(hr>=0){
