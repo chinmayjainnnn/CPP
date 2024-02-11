@@ -8,15 +8,14 @@ public:
         
         while(start<=end){
             mid=start+(end-start)/2;
-            if((target == nums[mid]) && ((mid==0) || ( target!=nums[mid-1] ))){
-                temp=mid;
-                break;
-            }
-            else if(target > nums[mid]){
+            if(target>nums[mid]){
                 start=mid+1;
             }
             else{
-                end=mid-1;   
+                end=mid-1;
+                if(target==nums[mid]){
+                    temp=mid;
+                }
             }
         }
         ans.push_back(temp);
@@ -24,22 +23,19 @@ public:
         start=0;
         end=n-1;
         temp=-1;
-       
         while(start<=end){
             mid=start+(end-start)/2;
-            if((target == nums[mid]) && ((mid==n-1) || ( target!=nums[mid+1] ))){
-                temp=mid;
-                break;
-            }
-            else if(target >= nums[mid]){
-                start=mid+1;
+            if(target<nums[mid]){
+                end=mid-1;
             }
             else{
-                end=mid-1;   
+                start=mid+1;
+                if(target==nums[mid]){
+                    temp=mid;
+                }
             }
-            cout<< mid<<endl;
         }
         ans.push_back(temp);
-        return ans;
+    return ans;
     }
 };
