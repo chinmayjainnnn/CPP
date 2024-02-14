@@ -5,7 +5,6 @@ public:
         for(auto i:bloomday){
             if(end<i)end=i;
         }
-        //cout<<end<<endl;
         while(start<=end){
             mid=start+(end-start)/2;
             if(enough(bloomday,m,k,mid)){
@@ -15,7 +14,6 @@ public:
             else{
                 start=mid+1;
             }
-            //cout<<mid<<" "<<ans<<" "<<endl;
         }
 
         return ans;
