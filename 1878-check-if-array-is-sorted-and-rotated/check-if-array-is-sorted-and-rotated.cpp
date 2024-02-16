@@ -7,11 +7,11 @@ public:
             i++;
         }
         if(i==n ){return true;}
-        cout<<i <<" ";
+        
         while( (i<n) && (nums[i]<=nums[n-1])  ){
             i++;
         }
-        cout<<i <<" ";
+        
         if(i==n && (nums[0]>= nums[n-1]))return true;
         return false;
     }
