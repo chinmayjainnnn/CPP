@@ -18,11 +18,7 @@ public:
             k=k/10;
 
         }
-        // while(k%10+carry>0){
-        //     res.push_back(k%10+carry);
-        //     k=k/10;
-        //     carry=0;
-        // }
+        
         while( (k+carry)>0 ){
             res.push_back(  (k+carry)%10 );
             if( (k%10)+carry >9 ){
