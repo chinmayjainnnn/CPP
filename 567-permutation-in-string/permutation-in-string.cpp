@@ -10,11 +10,9 @@ public:
         if(n>n2)return 0;
         for(int i=0;i<n;i++){
             h1[s1[i]]+=1;
-        }
-        
-        for(int i=0;i<n;i++){
             h2[s2[i]]+=1;
         }
+        
         
         for(int i=0;i<n2-n+1;i++){
         
