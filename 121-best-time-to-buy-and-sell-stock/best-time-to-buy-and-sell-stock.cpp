@@ -8,10 +8,6 @@ public:
         for(int i=0;i<n-1;i++){
             arr[i]=prices[i+1]-prices[i];
         }
-        for(int i=0;i<n-1;i++){
-            cout<< arr[i]<<" ";
-        }
-        cout << endl;
         int sum=0;
         int max=INT_MIN;
         for( int i=0;i<n-1;i++){
