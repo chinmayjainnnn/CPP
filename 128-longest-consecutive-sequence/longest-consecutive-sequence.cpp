@@ -13,7 +13,6 @@ public:
 
         int max=0,count=1,temp;
         temp=mp.begin()->first;
-        cout<<temp;
         for(auto i:mp){
             if((i.first-temp) ==1){
                 count++;
@@ -22,20 +21,13 @@ public:
                 if(max<count){
                     max=count;
                 }
-                    count=1;
-
+                count=1;
             }
-            
             temp=i.first;
-            
         }
         if(max<count){
             max=count;
         }
-
-        
-        
-        
     return max;
     }
 };
