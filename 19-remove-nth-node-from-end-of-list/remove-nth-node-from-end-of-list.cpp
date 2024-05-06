@@ -35,8 +35,6 @@ public:
         else{
             return t;
         }
-        cout<< e->val<<endl;
-        cout<< s->val;
 
 
         return head;
