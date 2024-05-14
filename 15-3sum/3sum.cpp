@@ -7,28 +7,26 @@ public:
         // unordered_map
 
         for(int i=0;i<n-2;i++){
-            if((i==0)||(i<n && nums[i]!=nums[i-1] ) ){
-                int k=n-1,sum,j=i+1;
-
-                while(j<k){
-                    sum=nums[i]+nums[j]+nums[k];
-                    if(sum>0){
-                        while(k>j && nums[k-1]==nums[k]){k--;}
-                        k--;
-                    }
-                    else if(sum<0){
-                        while(j<k && nums[j]==nums[j+1]){j++;}
+            if(i>0 && nums[i]==nums[i-1]) continue;
+            int sum = -nums[i];
+            int j = i+1, k = n-1;
+            while(j<k){
+                if(nums[j]+nums[k]==sum){
+                    ans.push_back({nums[i],nums[j],nums[k]});
+                    // cout<<ans.back()[0]<<" ";
+                    while(j<k && nums[j]==nums[j+1])
                         j++;
-                    }
-                    else{
-                        ans.push_back({nums[i],nums[j],nums[k]});
-                        while(k>j &&nums[k-1]==nums[k]){k--;}
+                    while(k>j && nums[k]==nums[k-1])
                         k--;
-                        while(j<k && nums[j]==nums[j+1]){j++;}
-                        j++;
-                    }
+                    j++;
+                    k--;
                 }
+                else if(nums[j]+nums[k]>sum)
+                    k--;
+                else
+                    j++;
             }
         }
-    return ans;}
+        return ans;
+    }
 };
