@@ -17,9 +17,6 @@ public:
                 ump[s[i]]=t[i];
                 ump2[t[i]]=s[i];
             }
-            else{
-                // cout<<one<<" "<<two<< s[i]<<" "<<ump[s[i]]<<" "<<t[i]<<" "<<ump2[t[i]]<<endl;
-            }
         }
 
     return true;}
