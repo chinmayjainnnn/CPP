@@ -6,7 +6,6 @@ public:
     int m=tasks.size();
     unordered_map<char,int> count;
     unordered_map<char,int> track;
-    vector<int> ans;
 
     for(int i=0;i<m;i++){
         count[tasks[i]]++;
@@ -25,18 +24,16 @@ public:
                 max=i.second;
             }
         }
-        // cout<<max<<" "<<c<<" "<<count[c];
         if(max>0 && count[c]==1){
             count.erase(c);
-            // cout<<" one ";
+            
         }
         else if(max>0){
             track[c]=j;
             count[c]--;
-            // cout<<" two";
+            
         }
 
-        // cout<<endl;
         j++;
     }
 
