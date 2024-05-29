@@ -13,9 +13,9 @@ public:
         while(head!=NULL && head->next!=NULL  ){
             temp=temp->next;
             head=head->next->next;
-            if(temp==head)return 1;
+            if(temp==head)return true;
         }
 
-    return 0;
+    return false;
     }
 };
