@@ -4,7 +4,6 @@ public:
     int n=matrix.size();
     int m=matrix[0].size();
 
-    // cout<<n<<" "<<m;
     int start=0,end=n-1,mid;
     mid=start+(end-start)/2;
     while(mid>-1 && mid<n && start<=end){
@@ -18,7 +17,6 @@ public:
             end=mid-1;
         }
     }
-    cout<<start<<" "<< mid<< " "<<end;
     int temp=end;
     start=0;
     end=m-1;
