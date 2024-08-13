@@ -16,13 +16,9 @@ public:
         pair<int,bool> l,r;
         l=bb(root->left);
         r=bb(root->right);
-        if(l.second==false || r.second==false){
+        if(l.second==false || r.second==false || abs(l.first-r.first)>1){
             return {0,false};
         }
-        else if(abs(l.first-r.first)>1){
-            return {0,false};
-        }
-           
         
         return {1+max(l.first,r.first),true};
         
