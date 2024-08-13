@@ -23,7 +23,6 @@ public:
             cout<<p->val<<endl;
             return false;
         }
-        cout<<p->val<<endl;
         bool a,b;
             a=check(p->left,q->left);
             b=check(p->right,q->right);
