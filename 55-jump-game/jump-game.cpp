@@ -6,7 +6,8 @@ public:
         int max=nums[0];
         for(int i=1;i<n-1;i++){
             if(i>max)break;
-            if(max<i+nums[i])max=i+nums[i];
+            else if(max<i+nums[i])max=i+nums[i];
+            
         }
         if(max>=n-1)return 1;
         return 0;
