@@ -15,7 +15,7 @@ public:
         
         while(l<r){
             
-            cout<<l<<" "<<r<<" "<<result<<endl;
+            // cout<<l<<" "<<r<<" "<<result<<endl;
 
             while(l+1<r && r<n && arr[r-1]<=arr[r] && arr[l]<=arr[r])r--;
             while(r<n && arr[l]>arr[r])r++;
