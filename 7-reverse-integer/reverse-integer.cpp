@@ -1,11 +1,12 @@
 class Solution {
 public:
     int reverse(int x) {
-        int rev=x,ans=0;
-        while(rev!=0 ){
+        int ans=0;
+        while(x!=0 ){
+            int digit =x%10;
             if(ans>INT_MAX/10 || ans <INT_MIN/10)return 0;
-            ans=ans*10+rev%10;
-            rev=rev/10;
+            ans=ans*10+digit;
+            x=x/10;
             
         }
         
