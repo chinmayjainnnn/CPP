@@ -12,7 +12,6 @@ public:
 
             }
             if(m==1)return 1;
-            cout<<m<<endl;
             
             n=m;
 
