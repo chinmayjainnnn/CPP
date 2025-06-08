@@ -2,10 +2,8 @@ class Solution {
 public:
     void reverseString(vector<char>& s) {
         int n=s.size();
-        int st=0, e=n-1;
-
-        while(st<e){
-            swap(s[st++],s[e--]);
+        for(int i=0;i<n/2;i++){
+            swap(s[i],s[n-i-1]);
         }
     }
 };
