@@ -8,7 +8,7 @@ public:
             rev=rev*10+(x%10);
             x=x/10;
         }
-        if(rev==temp)return 1;
-        return 0;
+        
+        return rev==temp;
     }
 };
