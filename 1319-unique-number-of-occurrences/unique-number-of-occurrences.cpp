@@ -1,22 +1,15 @@
 class Solution {
 public:
     bool uniqueOccurrences(vector<int>& arr) {
-        map <int,int> mp;
-        for(auto i:arr){
-            mp[i]++;
+        unordered_map<int,int> freq;
+        for(int i=0;i<arr.size();i++){
+            freq[arr[i]]++;
         }
-        vector <int> vec;
-        for(auto it:mp){
-            cout<<it.second<<endl;
-            vec.push_back(it.second);
+        unordered_map<int,int> mp;
+        for(auto i:freq){
+            if(mp[i.second]++>0)return 0;
+            
         }
-        int temp=0;
-        sort(vec.begin(),vec.end());
-        for(auto it:vec){
-            if(it==temp)return false;
-            temp=it;
-        }
-        return true;
-        
+        return 1;
     }
 };
