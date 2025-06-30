@@ -1,32 +1,33 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        int n=nums.size();
         sort(nums.begin(),nums.end());
         vector<vector<int>> ans;
-        // unordered_map
-
+        int n=nums.size();
+        int temp=0;
         for(int i=0;i<n-2;i++){
-            if(i>0 && nums[i]==nums[i-1]) continue;
-            int sum = -nums[i];
-            int j = i+1, k = n-1;
-            while(j<k){
-                if(nums[j]+nums[k]==sum){
-                    ans.push_back({nums[i],nums[j],nums[k]});
-                    // cout<<ans.back()[0]<<" ";
-                    while(j<k && nums[j]==nums[j+1])
-                        j++;
-                    while(k>j && nums[k]==nums[k-1])
-                        k--;
-                    j++;
-                    k--;
+            if(i>0 && nums[i]==nums[i-1])continue;
+            int target= -nums[i];
+
+            int l=i+1,r=n-1;
+            
+            while(l<r){
+                // cout<<i<<" "<<l<<" "<<r<<endl;
+                if(nums[l]+nums[r]==target){
+                    ans.push_back({-target,nums[l],nums[r]});
+                    
+                    l++;
+                    r--;
+                    while(l<n && nums[l]==nums[l-1])l++;
+                    while(r>l && nums[r]==nums[r+1])r--;
+                    
                 }
-                else if(nums[j]+nums[k]>sum)
-                    k--;
-                else
-                    j++;
+                else if(nums[l]+nums[r]<target)l++;
+                else r--;
             }
+            
+
         }
-        return ans;
+    return ans;
     }
 };
