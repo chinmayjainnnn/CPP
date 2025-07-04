@@ -14,7 +14,7 @@ public:
             else if(nums[mid] >nums[0] ) s=mid+1;
             else if(nums[mid] <nums[0] && target>nums[mid] && target <nums[0])s=mid+1;
             else e=mid;
-            cout<<s<<" "<<mid<<" "<<e<<endl;
+            // cout<<s<<" "<<mid<<" "<<e<<endl;
         }
         return -1;
     }
