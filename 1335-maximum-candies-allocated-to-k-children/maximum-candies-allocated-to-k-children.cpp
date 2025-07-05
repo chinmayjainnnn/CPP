@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool check(vector<int>& candies, long long k,int max){
+    bool check(vector<int>& candies, long long k,long long max){
         long long temp=0;
 
         for(int i=0;i<candies.size();i++){
@@ -21,7 +21,7 @@ public:
         if(k>=total){
             return total/k;
         }
-        long long s=0,e=total,mid;
+        long long s=0,e=total/k +1,mid;
         int ans=0;
         while(s<=e){
             mid=s+(e-s)/2;
