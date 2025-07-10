@@ -1,9 +1,14 @@
 class Solution {
 public:
     void reverseString(vector<char>& s) {
-        int n=s.size();
-        for(int i=0;i<n/2;i++){
-            swap(s[i],s[n-i-1]);
+        int i=0,j=s.size()-1;
+        while(i<j){
+            // cout<<i<<" "<<j<<endl;
+            int temp =s[i];
+            s[i]=s[j];
+            s[j]=temp;
+            j--;
+            i++;
         }
     }
 };
