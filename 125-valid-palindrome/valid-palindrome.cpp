@@ -1,27 +1,21 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int n=s.length();
-        string f;
-        int j=0;
-        for(int i=0;i<n;i++){
-            if(s[i]>='a'&& s[i]<='z'){
-                f.push_back(s[i]);
-            }
-            else if(s[i]>='0'&& s[i]<='9'){
-                f.push_back(s[i]);
-            }
-            else if(s[i]>='A'&& s[i]<='Z'){
-                f.push_back(s[i]-'A'+'a');
-            }
+        int i=0,j=s.size()-1;
+    while(i<=j){
+        if(s[i]==s[j]){i++;j--;continue;}
+        else if(  isalpha(s[i]) &&   isalpha(s[j]) ){
+            if(s[i]>='A' && s[i]<='Z')s[i]=s[i]-'A'+'a';
+            if(s[j]>='A' && s[j]<='Z')s[j]=s[j]-'A'+'a';         
+            if(s[i]==s[j]){i++;j--;continue;}
+            else return false;
+        } 
+        else if(!( isdigit(s[j]) || isalpha(s[j]) ))j--;
+        else if(!(isdigit(s[i]) || isalpha(s[i])))i++;
+        else{
+            return false;
         }
-    j=0;
-    n=f.size();
-    while( (n>=0) && j<n ){
-       
-        if(f[n-1]!=f[j++])return false;
-        n--;
-    }    
+    }
     return true;
     }
 };
