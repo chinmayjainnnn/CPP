@@ -1,23 +1,19 @@
 class Solution {
 public:
     int lengthOfLastWord(string s) {
-        int count=0;
-        int prevcount=0;
-        int n=s.size();
-        //cout<< n;
-        for(int i=0;i<n;i++){
-            if(s[i]==' '){
-                prevcount=count;
-                count=1;
+        int count=0,last=0;
+        
+        for(int i=0;i<s.size();i++){
+            if(s[i]==' ' ){
+                if(count)last=count;
+                count=0;
+                
             }
-            else{
-                count++;
-            }
-            while(s[i]==' ')i++;
-            cout<<i<<" "<<count<<" "<<prevcount<<endl;
-
+            else count++;
         }
-        if(s[n-1]!=' '){return count;}
-        return prevcount;
+        if(count) return count;
+        return last;
+        
     }
+    
 };
