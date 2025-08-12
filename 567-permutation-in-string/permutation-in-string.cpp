@@ -1,33 +1,33 @@
 class Solution {
 public:
     bool checkInclusion(string s1, string s2) {
-        int n=s1.size();
-        int n2=s2.size();
-        unordered_map <char,int> h1;
-        unordered_map <char,int> h2;
+        int n1=s1.size(),n2=s2.size();
+        if(n1>n2)return false;
+        map<char,int> mp1;
+        map<char,int> mp2;
 
-        
-        if(n>n2)return 0;
-        for(int i=0;i<n;i++){
-            h1[s1[i]]+=1;
-            h2[s2[i]]+=1;
+        for(int i=0;i<n1;i++){
+            mp1[s1[i]]++;
+            mp2[s2[i]]++;
         }
-        
-        
-        for(int i=0;i<n2-n+1;i++){
-        
-            if(h1==h2){
-                return 1;
-            }
-            if(h2[s2[i]]>1){
-                h2[s2[i]]-=1;
-            }
-            else{
-                h2.erase(s2[i]);
-            }
+        // cout<<n1<<" "<<n2<<endl;
+        // for(auto a:mp1){
+        //         cout<<a.first<<" "<<a.second<<endl;
+        //     }
+        // cout<<"mp1done"<<endl;
+        for(int i=n1;i<=n2;i++){
+            // for(auto a:mp2){
+            //     cout<<a.first<<" "<<a.second<<endl;
+            // }
+            // cout<<"mp2done"<<endl;
+            if(mp1==mp2)return true;
             
-            h2[s2[i+n]]+=1;
+            if(mp2[s2[i-n1]]==1){
+                mp2.erase(s2[i-n1]);
+            }
+            else mp2[s2[i-n1]]--;
+            mp2[s2[i]]++;
         }
-    return 0;
+        return false;
     }
 };
