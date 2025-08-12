@@ -3,23 +3,15 @@ public:
     bool checkInclusion(string s1, string s2) {
         int n1=s1.size(),n2=s2.size();
         if(n1>n2)return false;
-        map<char,int> mp1;
-        map<char,int> mp2;
+        unordered_map<char,int> mp1;
+        unordered_map<char,int> mp2;
 
         for(int i=0;i<n1;i++){
             mp1[s1[i]]++;
             mp2[s2[i]]++;
         }
-        // cout<<n1<<" "<<n2<<endl;
-        // for(auto a:mp1){
-        //         cout<<a.first<<" "<<a.second<<endl;
-        //     }
-        // cout<<"mp1done"<<endl;
+        
         for(int i=n1;i<=n2;i++){
-            // for(auto a:mp2){
-            //     cout<<a.first<<" "<<a.second<<endl;
-            // }
-            // cout<<"mp2done"<<endl;
             if(mp1==mp2)return true;
             
             if(mp2[s2[i-n1]]==1){
