@@ -1,45 +1,36 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int> arr;
-        int m=matrix.size(),n=matrix[0].size();
-        int i=0,j=0,k=0;
-        // cout<<m<<" "<<n;
-        for(k=0;k<min(n/2,m/2);k++){
+        int n=matrix.size(),m=matrix[0].size();
+        vector<int> ans;
+        int total=n*m,count=0;
+        for(int k=0;k<=min(n,m)/2;k++){
+            for(int i=k,j=k;j<m-k;j++){
+                cout<<"1= "<<matrix[i][j]<<" ";
+                count++;
+                ans.push_back(matrix[i][j]);
             
-            while( j< (n-k) ){arr.push_back(matrix[i][j]);j++;}
-            j--;
-            i++;
-            while( i< m-k ){ arr.push_back(matrix[i][j]);i++; }
-            i--;
-            j--;
-            while( j >=k  ){arr.push_back(matrix[i][j]);j--;}
-            j++;
-            i--;
-            while( i>k ){ arr.push_back(matrix[i][j]); i--;}
-            i++;
-            j++;
-
-        }
-        cout<< i<<" "<<j<<" "<<k<<endl;
-        
-       
-        if((2*k!=n) && m>n ){
-            while(i<m-k){
-                arr.push_back(matrix[i][j]);
-                i++;
             }
-        }
-        else if(2*k!=m && n>m){
-            while(j<n-k){
-                arr.push_back(matrix[i][j]);
-                j++;
+            if(count>=total)break;
+            for(int i=k+1,j=m-1-k;i<n-k;i++){
+                cout<<"2= "<<matrix[i][j]<<" ";
+                count++;
+                ans.push_back(matrix[i][j]);
             }
+            if(count>=total)break;
+            for(int i=n-1-k, j=m-1-k-1;j>=k;j--){
+                cout<<"3= "<<matrix[i][j]<<" ";
+                count++;
+                ans.push_back(matrix[i][j]);
+            }
+            if(count>=total)break;
+            for(int i=n-1-k-1,j=k;i>k;i--){
+                cout<<"4= "<<matrix[i][j]<<" ";
+                count++;
+                ans.push_back(matrix[i][j]);
+            }
+            // if(count>=total)break;
         }
-        else if( n%2==1 && n==m){
-            arr.push_back(matrix[i][j]);
-        }
-        
-    return arr;
+        return ans;
     }
 };
