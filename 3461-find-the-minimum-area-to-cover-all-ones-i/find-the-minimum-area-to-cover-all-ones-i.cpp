@@ -15,7 +15,7 @@ public:
 
             }
         }
-        cout<<vmin<<" "<<vmax<<" "<<hmin<<" "<<hmax<<endl;
+        // cout<<vmin<<" "<<vmax<<" "<<hmin<<" "<<hmax<<endl;
         return (vmax-vmin+1)*(hmax-hmin+1);
     }
 };
