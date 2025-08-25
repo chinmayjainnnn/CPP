@@ -8,9 +8,10 @@ public:
         while(i<n && j>=0 ){
             int num=matrix[i][j];
             
-            if(num==target)return true;
+            
             if(num<target)i++;
-            else j--;
+            else if(num>target)j--;
+            else return true;
         }
         matrix.clear();
         return false;
