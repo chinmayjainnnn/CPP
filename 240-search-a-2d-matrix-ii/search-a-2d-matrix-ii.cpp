@@ -11,9 +11,12 @@ public:
             
             if(num<target)i++;
             else if(num>target)j--;
-            else return true;
+            else {
+                matrix.clear();
+                return true;
+            }
         }
-        // matrix.clear();
+        matrix.clear();
         return false;
     }
 };
