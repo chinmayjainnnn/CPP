@@ -12,7 +12,7 @@ public:
             if(num<target)i++;
             else j--;
         }
-
+        matrix.clear();
         return false;
     }
 };
