@@ -9,8 +9,8 @@ public:
             int num=matrix[i][j];
             
             if(num==target)return true;
-            if(num>target)j--;
-            else i++;
+            if(num<target)i++;
+            else j--;
         }
 
         return false;
