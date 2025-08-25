@@ -6,10 +6,10 @@ public:
         int i=0;
         int j=m-1;
         while(i<n && j>=0 ){
+            int num=matrix[i][j];
             
-            
-            if(matrix[i][j]==target)return true;
-            else if(matrix[i][j]>target)j--;
+            if(num==target)return true;
+            if(num>target)j--;
             else i++;
         }
 
