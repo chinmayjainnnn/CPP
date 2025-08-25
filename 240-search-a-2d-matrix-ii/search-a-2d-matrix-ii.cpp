@@ -13,7 +13,7 @@ public:
             else if(num>target)j--;
             else return true;
         }
-        matrix.clear();
+        // matrix.clear();
         return false;
     }
 };
