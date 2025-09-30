@@ -2,26 +2,20 @@ class Solution {
 public:
     string removeOuterParentheses(string s) {
         string ans;
-        int n=s.size();
-        int a=0;
-        
-        for(int i=1;i<n-1;i++){
-            if(s[i]=='('){
-                a--;
-                ans.push_back('(');
-                // cout<<"2"<<endl;
+        int count=-1;
+        for(auto it:s){
+            // cout<<it<<endl;
+            if(it=='(' ){
+                if(count>-1){
+                    ans.push_back(it);
+                }
+                count++;
             }
-            else {
-                a++;
-                if(a==1){
-                    i++;
-                    a=0;
+            else{
+                if(count>0){
+                    ans.push_back(it);
                 }
-                else{
-                    ans.push_back(')');
-                }
-                
-                // cout<<"3"<<endl;
+                count--;
             }
         }
     return ans;
