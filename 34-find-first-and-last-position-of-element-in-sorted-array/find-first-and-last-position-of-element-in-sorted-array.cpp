@@ -1,56 +1,36 @@
 class Solution {
 public:
-    vector<int> searchRange(vector<int>& arr, int k) {
-        
-        int n=arr.size();
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int n=nums.size();
         if(n==0)return {-1,-1};
-        vector<int> ans;
-        int f=-1,b=-1;
-        int start=0,end=n-1,mid;
-        if(arr[0]==k){
-            start=n;
-            f=0;
+        int first=-1,end=-1;
+        int s=0,e=n-1,mid;
+        while(s<=e){
+            mid=s+(e-s)/2;
+            if(mid<n-1 && nums[mid]!=target && nums[mid+1]==target){
+                first=mid+1;
+                break;
+            }
+            else if(nums[mid]<target ) s=mid+1;
+            else e=mid-1;
         }
+        if(nums[0]==target)first=0;
+        s=0;
+        e=n-1;
+        while(s<=e){
+            mid=s+(e-s)/2;
+            // cout<<mid<<endl;
+            if(mid<n-1  && nums[mid]==target && nums[mid+1]!=target){
+                end=mid;
+                cout<<end<<endl;
+                break;
+            }
+            else if(nums[mid]>target) e=mid-1;
+            else s=mid+1;
+        }
+
+        if(nums[n-1]==target)end=n-1;
+        return {first,end};
         
-        while(start<=end){
-            mid=start+(end-start)/2;
-            if(mid>0 && arr[mid]==k && arr[mid-1]!=k ){
-                f=mid;
-                break;
-            }
-            else if(arr[mid]<k ){
-                start=mid+1;
-            }
-            else if(arr[mid]>k || (mid>0 && arr[mid]==k && arr[mid-1]==k)){
-                end=mid-1;
-            }
-        }
-        start=0;
-        end=n-1;
-        if(arr[n-1]==k){
-            start=n;
-            b=n-1;
-        }
-        while(start<=end){
-            mid=start+(end-start)/2;
-            if(mid<n-1 && arr[mid]==k && arr[mid+1]!=k){
-                b=mid;
-                break;
-            }
-            else if(arr[mid]<k || (mid<n-1 && arr[mid+1]==k && arr[mid]==k)){
-                start=mid+1;
-            }
-            else if(arr[mid]>k){
-                end=mid-1;
-            }
-        }
-
-
-
-
-    ans.push_back(f);
-    ans.push_back(b);
-    return ans;
     }
-
 };
