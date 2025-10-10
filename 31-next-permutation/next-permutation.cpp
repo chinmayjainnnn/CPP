@@ -2,19 +2,38 @@ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         int n=nums.size();
-        int peak=n-1;
+        int peak=-1;
 
-        while(peak>0 && nums[peak]<=nums[peak-1])peak--;
-        if(peak==0){
-            sort(nums.begin(),nums.end());
-            return;
+        for(int i=n-1;i>0;i--){
+            if(nums[i]>nums[i-1]){
+                peak=i;
+                break;
+            }
         }
-        int i=n-1;
-        while(i>peak && nums[peak-1]>=nums[i])i--;
-        
-        // cout<<peak<<" " <<i<<endl;
-        swap(nums[peak-1],nums[i]);
-        sort((nums.begin()+peak),nums.end());
-        
+        // cout<<peak<<endl;
+        if(peak==-1){
+            sort(nums.begin(),nums.end());
+            return ;
+        }
+        int min,val=nums[peak-1];
+
+        for(int i=n-1;i>peak-1;i--){
+            if( nums[i]>val){
+                min=i;
+                break;
+            }
+        }
+        // cout<<min<<endl;
+        // for(int i=0;i<n;i++){
+        //     cout<<nums[i]<<" ";
+        // }
+        // cout<<endl;
+        swap(nums[min],nums[peak-1]);
+        // for(int i=0;i<n;i++){
+        //     cout<<nums[i]<<" ";
+        // }
+        // cout<<endl;
+        sort(nums.begin()+peak,nums.end());
+        return;
     }
 };
