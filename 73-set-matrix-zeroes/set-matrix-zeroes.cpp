@@ -1,8 +1,8 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        unordered_map<int,int>  row;
-        unordered_map<int,int> column;
+        unordered_map<int,bool>  row;
+        unordered_map<int,bool> column;
         int n=matrix.size(),m=matrix[0].size();
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
