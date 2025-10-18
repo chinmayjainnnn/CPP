@@ -2,34 +2,42 @@ class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
         int n=matrix.size(),m=matrix[0].size();
+        int max=n*m,count=0;
         vector<int> ans;
-        int total=n*m,count=0;
         for(int k=0;k<=min(n,m)/2;k++){
-            for(int i=k,j=k;j<m-k;j++){
-                cout<<"1= "<<matrix[i][j]<<" ";
-                count++;
-                ans.push_back(matrix[i][j]);
-            
+            int horizontal=k;
+
+            for(int i=k;i<m-k;i++,count++){
+                cout<<horizontal<<" "<<i<<" ";
+                ans.push_back(matrix[horizontal][i]);
             }
-            if(count>=total)break;
-            for(int i=k+1,j=m-1-k;i<n-k;i++){
-                cout<<"2= "<<matrix[i][j]<<" ";
-                count++;
-                ans.push_back(matrix[i][j]);
+            cout<<endl;
+            cout<<count<<endl;
+            int vertical=m-k-1;
+            if(count>=max)break;
+            for(int j=k+1;j<n-k;j++,count++){
+                cout<<j<<" "<<vertical<<" ";
+                ans.push_back(matrix[j][vertical]);
             }
-            if(count>=total)break;
-            for(int i=n-1-k, j=m-1-k-1;j>=k;j--){
-                cout<<"3= "<<matrix[i][j]<<" ";
-                count++;
-                ans.push_back(matrix[i][j]);
+            horizontal=n-k-1;
+            cout<<endl;
+            cout<<count<<endl;
+            if(count>=max)break;
+            for(int i=m-k-1-1;i>k;i--,count++){
+                cout<<horizontal<<" "<<i<<" ";
+                ans.push_back(matrix[horizontal][i]);
             }
-            if(count>=total)break;
-            for(int i=n-1-k-1,j=k;i>k;i--){
-                cout<<"4= "<<matrix[i][j]<<" ";
-                count++;
-                ans.push_back(matrix[i][j]);
+            vertical=k;
+            cout<<endl;
+            cout<<count<<endl;
+            if(count>=max)break;
+            for(int j=n-k-1;j>k;j--,count++){
+                cout<<j<<" "<<vertical<<" ";
+                ans.push_back(matrix[j][vertical]);
             }
-            // if(count>=total)break;
+            if(count>=max)break;
+            cout<<endl;
+            cout<<count<<endl;
         }
         return ans;
     }
