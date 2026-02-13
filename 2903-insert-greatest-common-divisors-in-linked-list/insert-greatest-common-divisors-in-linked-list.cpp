@@ -24,11 +24,7 @@ public:
         while(next!=NULL){
             int gcd=GCD(curr->val,next->val);
             ListNode* temp= new ListNode(gcd,next);
-            
-            
-            temp->next=next;
             curr->next=temp;
-            
             curr=next;
             next=next->next;
         }        
