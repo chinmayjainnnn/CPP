@@ -10,46 +10,38 @@
  */
 class Solution {
 public:
-    ListNode* removeNodes(ListNode* head) {
-        ListNode* curr;
-        ListNode* prev;
-        ListNode* nex;
-        prev=NULL;
-        curr=head;
-        nex=curr->next;
-        while(nex!=NULL){
-            curr->next=prev;
-            prev=curr;
-            curr=nex;
-            nex=curr->next;
+    ListNode* reverselist(ListNode* head){
+        if(head->next==NULL)return head;
+        ListNode* cur=head;
+        ListNode* next=head->next;
+        ListNode* prev=NULL;
+
+        while(next!=NULL){
+            next=cur->next;
+            cur->next=prev;
+            prev=cur;
+            cur=next;
         }
-        curr->next=prev;
-        
-        
-        nex=curr;
-        prev=curr;
-        int max=0;
-        while(curr!=NULL){
-            if(curr->val <prev->val){
-                prev->next=curr->next;
+        return prev;
+    }
+    ListNode* removeNodes(ListNode* head) {
+        if(head->next==NULL)return head;
+        ListNode* newhead=reverselist(head);
+        head=newhead;
+        int max=head->val;
+        while(head->next!=NULL && head!=NULL){
+            // cout<<"val="<<head->val<<endl;
+            // cout<<"max="<<max<<endl;
+            if(head->next->val<max){
+                head->next=head->next->next;
+
             }
             else{
-                prev=curr;
+                max=head->next->val;
+                head=head->next;
             }
-            curr=curr->next;
-            
         }
-        // head=curr;
-        prev=NULL;
-        curr=nex;
-        nex=curr->next;
-        while(nex!=NULL){
-            curr->next=prev;
-            prev=curr;
-            curr=nex;
-            nex=curr->next;
-        }
-        curr->next=prev;
-    return curr;
+
+    return reverselist(newhead);
     }
 };
