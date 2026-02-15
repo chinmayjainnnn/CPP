@@ -11,7 +11,7 @@
 class Solution {
 public:
     ListNode* swapNodes(ListNode* head, int k) {
-        if(head->next ==NULL || head==NULL)return head;
+        
         int len=0;
         ListNode* first;
         ListNode* temp=head;
@@ -23,15 +23,41 @@ public:
             temp=temp->next;
         }
         k=len-k;
-        
         temp=head;
         while(k--){
             temp=temp->next;
         }
         swap(temp->val,first->val);
-        return head;
-
-
-        
+        return head;       
     }
 };
+
+// class Solution {
+// public:
+//     ListNode* swapNodes(ListNode* head, int k) {
+//         int count=0;
+//         ListNode* temp=head;
+//         ListNode* kthb=nullptr;
+//         ListNode* kthe=nullptr;
+//         while(temp!=nullptr){
+//             count++;
+//             if(count==k){
+//                 kthb=temp;
+//             }
+//             temp=temp->next;
+//         }
+//         int point=count-k+1,c=0;
+//         temp=head;
+//         while(temp!=nullptr){
+//             c++;
+//             if(c==point){
+//                 kthe=temp;
+//             }
+//             temp=temp->next;
+//         }
+//         int t=kthb->val;
+//         kthb->val=kthe->val;
+//         kthe->val=t;
+//         return head;
+//     }
+// };
