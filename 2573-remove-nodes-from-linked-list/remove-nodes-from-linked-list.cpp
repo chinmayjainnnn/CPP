@@ -25,13 +25,11 @@ public:
         return prev;
     }
     ListNode* removeNodes(ListNode* head) {
-        if(head->next==NULL)return head;
+        if(head==NULL && head->next==NULL)return head;
         ListNode* newhead=reverselist(head);
         head=newhead;
         int max=head->val;
-        while(head->next!=NULL && head!=NULL){
-            // cout<<"val="<<head->val<<endl;
-            // cout<<"max="<<max<<endl;
+        while(head->next!=NULL ){
             if(head->next->val<max){
                 head->next=head->next->next;
 
