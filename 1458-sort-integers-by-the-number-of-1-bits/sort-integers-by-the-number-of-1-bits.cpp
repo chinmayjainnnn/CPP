@@ -16,7 +16,7 @@ public:
         int i=0;
         for(auto &row:nums){
             for(auto b:row){
-                cout<<b<<endl;
+                
                 arr[i++]=b;
             }
         }
