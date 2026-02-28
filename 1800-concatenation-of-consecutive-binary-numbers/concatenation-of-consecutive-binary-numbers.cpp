@@ -6,11 +6,10 @@ public:
         long long mod = 1e9 + 7;
         int bits=1;
         for(int i=2;i<n+1;i++){
-            if(i==pow(2,bits)){
+            if(!(i & i-1)){
                 bits++;
             }
             ans=((ans<<bits)+i)%mod;
-            
         }
         return ans;
     }
