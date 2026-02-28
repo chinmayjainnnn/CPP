@@ -9,7 +9,7 @@ public:
             if(!(i & i-1)){
                 bits++;
             }
-            ans=((ans<<bits)+i)%mod;
+            ans=((ans<<bits)|i)%mod;
         }
         return ans;
     }
