@@ -14,9 +14,7 @@ public:
                 ans=i.first;
                 mini=i.second;
             }
-            else if(i.second==mini){
-                ans=min(i.first,ans);
-            }
+           
            
 
         }
