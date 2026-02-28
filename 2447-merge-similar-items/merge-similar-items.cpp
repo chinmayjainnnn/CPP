@@ -9,7 +9,7 @@ public:
             mp[v[0]]+=v[1];
         }
         vector<vector<int>> ans;
-        for(auto i:mp){
+        for(auto &i:mp){
             ans.push_back({i.first,i.second});
         }
         return ans;
