@@ -13,8 +13,5 @@ public:
             ans.push_back({i.first,i.second});
         }
         return ans;
-    
-
     }
-
 };
