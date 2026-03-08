@@ -36,8 +36,8 @@ public:
                 }
                 continue;
             }
-            cout<<temp->val<<endl;
-            cout<<"q size"<<q.size()<<endl;
+            // cout<<temp->val<<endl;
+            // cout<<"q size"<<q.size()<<endl;
             if(temp->left){
                 TreeNode* l=temp->left;
                 q.push(l);
