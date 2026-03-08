@@ -11,41 +11,45 @@
  */
 class Solution {
 public:
-    
     vector<vector<int>> levelOrder(TreeNode* root) {
-        queue<TreeNode*> qu;
-        int n=1,size=1;
+        if(root==NULL)return{};
+        queue<TreeNode*> q;
         vector<vector<int>> ans;
+        vector<int> v;
+        q.push(root);
+        q.push(NULL);
+        v.push_back(root->val);
+        ans.push_back(v);
+        v.clear();
+        while(!q.empty()){
 
-        qu.push(root);
-        while(!qu.empty()){
-            vector<int> vec;
-            for(int i=0;i<n;i++){
-                
-                TreeNode* temp;
-                temp=qu.front();
-                if(temp!=NULL){
-                    vec.push_back(temp->val);
-                    qu.push(temp->left);
-                    qu.push(temp->right);
-                    size++;
-                    qu.pop();
-                    // cout<<"1"<<" ";
-                }
-                else{
-                    size--;
-                    qu.pop();
-                    // cout<<"2"<<" ";
-                } 
-                // cout<<size<<" "<<i<<endl;
-            }
-            n=size;
-            if(vec.size()!=0){
-                ans.push_back(vec);
-            }
+            TreeNode* temp=q.front();
             
+            q.pop();
+            if(temp==NULL){
+                if(v.size()){
+                    ans.push_back(v);
+                }
+                v.clear();
+                if(!q.empty()){
+                    q.push(NULL);
+                }
+                continue;
+            }
+            cout<<temp->val<<endl;
+            cout<<"q size"<<q.size()<<endl;
+            if(temp->left){
+                TreeNode* l=temp->left;
+                q.push(l);
+                v.push_back(l->val);
+            }
+            if(temp->right){
+                TreeNode* r=temp->right;
+                q.push(r);
+                v.push_back(r->val);
+            }
         }
 
-    return ans;
-    }
+        return ans;          
+        }
 };
