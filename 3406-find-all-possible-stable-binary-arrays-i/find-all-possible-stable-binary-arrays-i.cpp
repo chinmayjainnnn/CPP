@@ -1,8 +1,9 @@
 class Solution {
 public:
     long long rec(int r_zeros,int r_ones,int last,int limit,vector<vector<vector<long long>>> &mem){
-        if(mem[r_zeros][r_ones][last]!=-1)return mem[r_zeros][r_ones][last]; 
         if(r_zeros==0 && r_ones==0){return 1;}
+        if(mem[r_zeros][r_ones][last]!=-1)return mem[r_zeros][r_ones][last]; 
+        
         long long ans=0;
         long long mod=1e9+7;
         if(last==0){
