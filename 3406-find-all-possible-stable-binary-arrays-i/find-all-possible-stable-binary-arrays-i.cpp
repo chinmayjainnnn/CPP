@@ -21,11 +21,9 @@ public:
 
     }
     int numberOfStableArrays(int zero, int one, int limit) {
-        long long ans=0;
         long long mod=1e9+7;
         vector<vector<vector<long long>>> mem(zero+1,vector<vector<long long>>(one+1,vector<long long>(2,-1)));
-        ans+=rec(zero,one,1,limit,mem);
-        ans+=rec(zero,one,0,limit,mem);
-        return ans%mod;
+        
+        return (rec(zero,one,1,limit,mem)+rec(zero,one,0,limit,mem))%mod;
     }
 };
