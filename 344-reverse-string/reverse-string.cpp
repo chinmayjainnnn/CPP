@@ -1,14 +1,17 @@
 class Solution {
 public:
     void reverseString(vector<char>& s) {
-        int i=0,j=s.size()-1;
-        while(i<j){
-            // cout<<i<<" "<<j<<endl;
-            int temp =s[i];
-            s[i]=s[j];
-            s[j]=temp;
-            j--;
-            i++;
+        stack<char> st;
+        for(char c:s){
+            st.push(c);
         }
+        s.clear();
+        while(!st.empty()){
+            s.push_back(st.top());
+            st.pop();
+        }
+
+        
+
     }
 };
