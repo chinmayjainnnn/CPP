@@ -21,9 +21,7 @@ public:
                         mini=min(mini,temp[p+1]-temp[p]);
                     }  
                 }
-                if(mini!=INT_MAX){
-                    ans[i][j]=mini;
-                }
+                ans[i][j]=(mini==INT_MAX)?0:mini;
             }
         }
         return ans;
