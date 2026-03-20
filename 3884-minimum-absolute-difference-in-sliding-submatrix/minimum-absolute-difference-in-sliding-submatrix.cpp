@@ -13,22 +13,19 @@ public:
                         temp.push_back(grid[p][q]);
                     }
                 }
-                
-                
+  
                 sort(temp.begin(),temp.end());
                 int mini=INT_MAX;
                 for(int p=0;p<(k*k)-1;p++){
-                    if(temp[p]==temp[p+1]){
-                        continue;
-                    }
-                    mini=min(mini,temp[p+1]-temp[p]);
+                    if(temp[p]!=temp[p+1]){
+                        mini=min(mini,temp[p+1]-temp[p]);
+                    }  
                 }
                 if(mini!=INT_MAX){
                     ans[i][j]=mini;
                 }
-                }
             }
-        
+        }
         return ans;
     }
 };
