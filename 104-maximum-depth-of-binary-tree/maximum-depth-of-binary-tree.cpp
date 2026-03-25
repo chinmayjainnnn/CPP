@@ -11,11 +11,22 @@
  */
 class Solution {
 public:
-    int depth(TreeNode* root){
-        if(root==NULL) return 0;
-        return max(depth(root->left) ,depth(root->right)  )+1;
-    }
     int maxDepth(TreeNode* root) {
-        return depth(root);        
+        if(!root)return 0;
+        queue<TreeNode*> q;
+        q.push(root);
+        int ans=0;
+        while(!q.empty()){
+            int size=q.size();
+            ans++;
+            for(int i=0;i<size;i++){
+                TreeNode* temp=q.front();
+                q.pop();
+                
+                if(temp->left){q.push(temp->left);}
+                if(temp->right){q.push(temp->right);}
+            }
+        }
+        return ans;
     }
 };
