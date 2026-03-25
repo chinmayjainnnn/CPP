@@ -4,22 +4,24 @@ public:
         int n=grid.size(),m=grid[0].size();
         vector<long> row(n,0);
         vector<long> col(m,0);
-
+        long tot=0;
         for(int i=0;i<n;i++){
             long sum=0;
             for(int j=0;j<m;j++){
                 sum+=grid[i][j];
             }
             row[i]=sum;
+            tot+=sum;
         }
-        long tot=0;
+        if(tot%2)return false;
         for(int j=0;j<m;j++){
             long sum=0;
             for(int i=0;i<n;i++){
                 sum+=grid[i][j];
             }
             col[j]=sum;
-            tot+=sum;
+            
+            
         }
         long sum=0;
         for(int i=0;i<n;i++){
