@@ -23,8 +23,9 @@ public:
                 if(bottom[val]==0)bottom.erase(val);
             }
             if(sum1==sum2)return true;
-            long dif=abs(sum1-sum2);
+            long dif=sum1-sum2;
             if(sum1>sum2){
+                dif=sum1-sum2;
                 if(top.find(dif)!=top.end()){
                     if(m!=1){
                         if(i!=0)return true;
@@ -33,7 +34,8 @@ public:
                     else if(grid[0][0]==dif || grid[i][0]==dif)return true;             
                 }
             }
-            else if( bottom.find(dif)!=bottom.end()){
+            else if( bottom.find(sum2-sum1)!=bottom.end()){
+                dif=sum2-sum1;
                 if(m!=1 ){
                    if(i!=n-2)return true;
                    cout<<"here"<<endl;
@@ -62,8 +64,9 @@ public:
                 if(bottom[val]==0)bottom.erase(val);
             }
             if(sum1==sum2)return true;
-            long dif=abs(sum1-sum2);
+            long dif;
             if(sum1>sum2){
+                dif=sum1-sum2;
                 if(top.find(dif)!=top.end()){
                     if(n!=1){
                         if(j!=0   )return true;
@@ -73,7 +76,8 @@ public:
                 }
                 
             }
-            else if( bottom.find(dif)!=bottom.end()){
+            else if( bottom.find(sum2-sum1)!=bottom.end()){
+                dif=sum2-sum1;
                 if(n!=1){
                     if(j!=m-2)return true;
                     if(grid[0][m-1]==dif || grid[n-1][m-1]==dif)return true;
