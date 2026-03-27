@@ -11,24 +11,15 @@
  */
 class Solution {
 public:
-    pair<int,bool> bb(TreeNode* root){
-        if(root==NULL)return {0,true};
-        pair<int,bool> l,r;
-        l=bb(root->left);
-        r=bb(root->right);
-        if(l.second==false || r.second==false || abs(l.first-r.first)>1){
-            return {0,false};
-        }
-        
-        return {1+max(l.first,r.first),true};
-        
+    pair<int,bool> rec(TreeNode* root){
+        if(root==NULL)return{0,1};
+        auto it=rec(root->left);
+        auto it2=rec(root->right);
+        if(it.second==0||it2.second==0)return {0,0};
+        else if(abs(it.first-it2.first)>1)return{0,0};
+        else return {max(it.first,it2.first)+1,1};
     }
-        
-    
     bool isBalanced(TreeNode* root) {
-        pair<int,bool> n;
-        n=bb(root);
-        return n.second;
-        
+        return rec(root).second;
     }
 };
