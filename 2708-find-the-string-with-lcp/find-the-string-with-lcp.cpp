@@ -6,14 +6,12 @@ public:
         
         char last='a'-1;
         for(int i=0;i<n;i++){
-            if(ans[i]=='a'-1){ 
+            if(ans[i]>='a')continue;
+            else{ 
                 ans[i]=last+1;
                 if(last=='z')return "";
                 last++;
             } 
-            else{
-                continue;
-            }
             for(int j=0;j<n;j++){
                 if(lcp[i][j] ){
                    ans[j]=ans[i]; 
@@ -32,7 +30,10 @@ public:
             for(int j=0;j<n;j++){
                 int x=lcp[i][j],y=lcp[j][i];
                 if(x!=y)return"";
-                if(ans[i]==ans[j]&& x==0 || ans[i]!=ans[j]&& x!=0 )return"";
+                if(ans[i]==ans[j]){
+                    if(!x)return"";
+                }
+                else if(x)return"";
                 
                 if( x!=0 && i+1<n && j+1<n && (x!=lcp[i+1][j+1]+1 || y!=lcp[i+1][j+1]+1))return"";
                 // cout<<"j= "<<j<<endl;
