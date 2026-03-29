@@ -7,12 +7,12 @@ public:
 
         for(int i=0;i<n;i++){
             if(i%2){
-                odd[s1[i]-'a']+=1;
-                odd[s2[i]-'a']-=1;
+                odd[s1[i]-'a']++;
+                odd[s2[i]-'a']--;
             }
             else{
-                even[s1[i]-'a']+=1;
-                even[s2[i]-'a']-=1;
+                even[s1[i]-'a']++;
+                even[s2[i]-'a']--;
             }
         }
         
