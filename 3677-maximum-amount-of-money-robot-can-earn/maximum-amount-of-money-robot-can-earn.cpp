@@ -16,8 +16,8 @@ public:
                     dp[i][0][k]=max(dp[i-1][0][k]+c,dp[i-1][0][k-1] );                    
                 }
                 else{
-                    if(dp[i-1][0][k]!=Neg){
-                    dp[i][0][k]=dp[i-1][0][k]+c;}
+                    
+                    dp[i][0][k]=dp[i-1][0][k]+c;
                 }
 
             }
@@ -30,7 +30,7 @@ public:
                     dp[0][j][k]=max(dp[0][j-1][k]+c,dp[0][j-1][k-1]);
                 }
                 else{
-                    if(dp[0][j-1][k]!=Neg)
+                    
                     dp[0][j][k]=dp[0][j-1][k]+c;
                 }
                 
