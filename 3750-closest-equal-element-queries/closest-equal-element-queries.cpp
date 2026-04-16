@@ -9,26 +9,12 @@ public:
         int m=queries.size();
         vector<int> ans(m,-1);
         for(int j=0;j<m;j++ ){
-            int index=queries[j];
-            int val=nums[index];
-            auto &arr=mp[val];
-            int s=0,e=arr.size()-1;
-            int mid;
-            if(!e)continue;
-            while(s<=e){
-                mid=s+(e-s)/2;
-                if(arr[mid]==index){
-                    break;
-                }
-                else if(arr[mid]>index){
-                    e=mid-1;
-                }
-                else{s=mid+1;}
-            }
-            e=arr.size();
-            int a=arr[(mid+1+e)%e];
-            int b=arr[(mid-1+e)%e];
-            ans[j]=min((a-index+n)%n,(index-b+n)%n );
+            auto &arr=mp[nums[queries[j]]];
+            if (arr.size()==1)continue;
+            int mid=(int)(lower_bound(arr.begin(),arr.end(),queries[j])-arr.begin());
+            int a=arr[(mid+1)%arr.size()];
+            int b=arr[(mid-1+arr.size())%arr.size()];
+            ans[j]=min((a-queries[j]+n)%n,(queries[j]-b+n)%n );
         }
     return ans;
     }
