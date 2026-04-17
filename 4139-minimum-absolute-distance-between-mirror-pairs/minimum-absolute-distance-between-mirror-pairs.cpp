@@ -15,9 +15,9 @@ public:
 
         for(int i=0;i<n;i++){
             int x=nums[i];
-            int rev=reverse(x);
+            
             if(mp.find(x)!=mp.end())ans=min(ans,i-mp[x]);
-            mp[rev]=i;
+            mp[reverse(x)]=i;
             
         }
         if(ans==n+1)return -1;
