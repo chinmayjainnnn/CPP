@@ -27,12 +27,14 @@ public:
             merge(it[0],it[1]);
         }
         unordered_map<int,unordered_map<int,int>> ump;
+        vector<int> root(n);
         for(int i=0;i<n;i++){
-            ump[find(i)][source[i]]++;
+            root[i]=find(i);
+            ump[root[i]][source[i]]++;
         }
         int ans=0;
         for(int i=0;i<n;i++){
-            int par=find(i);
+            int par=root[i];
             auto &freq=ump[par];
             int val=target[i];
             if(freq.count(val) && freq[val]>0 ){
