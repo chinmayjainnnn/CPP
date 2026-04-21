@@ -9,14 +9,8 @@ public:
         return parent[x];
     }
     void merge(int a,int b){
-        int ra=find(a),rb=find(b);
-        if(ra==rb)return;
-        if(rank[ra]<rank[rb])parent[ra]=rb;
-        else if(rank[rb]<rank[ra])parent[rb]=ra;
-        else{
-            parent[rb]=ra;
-            rank[ra]++;
-        }
+        parent[find(a)]=find(b);
+        
     }
     int minimumHammingDistance(vector<int>& source, vector<int>& target, vector<vector<int>>& a) {
         int n=source.size();
