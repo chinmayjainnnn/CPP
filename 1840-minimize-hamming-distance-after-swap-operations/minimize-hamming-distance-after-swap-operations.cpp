@@ -14,10 +14,9 @@ public:
     }
     int minimumHammingDistance(vector<int>& source, vector<int>& target, vector<vector<int>>& a) {
         int n=source.size();
-        for(int i=0;i<n;i++){
-            parent.push_back(i);
-            rank.push_back(0);
-        }
+        parent.resize(n);
+        rank.resize(n,0);
+        iota(parent.begin(), parent.end(), 0);
         for(auto it:a){
             merge(it[0],it[1]);
         }
