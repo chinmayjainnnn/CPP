@@ -8,9 +8,9 @@ public:
         for(int i=0;i<n;i++){
             
             freq[a[i]]++;
-            if(freq[a[i]]==2)ans[i]=++last;
+            if(freq[a[i]]==2)++last;
             freq[b[i]]++;
-            if(freq[b[i]]==2)ans[i]=++last;
+            if(freq[b[i]]==2)++last;
             ans[i]=last;
             
         }
